@@ -8,8 +8,9 @@
 
 #define ERROR -1
 #define WARN -2
-
-char *types[] = {"sveikasis","dvejetaine","nesveikasis","rmasyvas","raide"};
+#define MAXTYPE 5
+#define MAXSTRING 128
+char types[MAXTYPE][MAXSTRING] = {"sveikasis","dvejetaine","nesveikasis","rmasyvas","raide"};
 
 char* readfile(FILE* file) {
     char c;
