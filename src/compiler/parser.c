@@ -19,7 +19,6 @@ struct Variable {
 } variable;
 char types[MAXTYPE][64] = {"sveikasis", "dvejetaine", "nesveikasis", "siulas",
                            "raide"};
-
 char* readfile(FILE* file) {
     bool we = false;  // was equal
     short pos = 0;
@@ -74,6 +73,7 @@ char* readfile(FILE* file) {
                 while (line[preve] != 34) {
                     value[pos] = line[preve];
                     preve++;
+                    pos++;
                 }
                 pos = 0;
                 preve = 0;
