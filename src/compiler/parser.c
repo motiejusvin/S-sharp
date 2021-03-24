@@ -15,12 +15,12 @@ char types[MAXTYPE][64] = {"sveikasis", "dvejetaine", "nesveikasis", "rmasyvas",
                            "raide"};
 
 char* readfile(FILE* file) {
-    bool we = false;
+    bool we = false; //was equal
     short pos = 0;
     int linec = 0;
     size_t len = 0;  // size_t: cannot be negative
-    char* line = NULL;
-    int preve = 0;
+    char* line;
+    int preve = 0; //Previous char location
     ssize_t read;  // ssize_t: same as size_t,but can have -1
     char* fw = malloc(MAXSTRING);
     char* name = malloc(MAXSTRING);
@@ -30,64 +30,67 @@ char* readfile(FILE* file) {
         exit(ERROR);
     }
 
-    while ((read = getline(&line, &len, file)) != -1) {
+    while ((read = getline(&line, &len, file)) != -1) { //Kol yra i ka ziureti, tol daryk....
         linec++;
-        for (int l = 0; l < read; l++) {
-            if (line[l] != ' ') {
-                fw[l] = line[l];
-                preve++;
-            } else {
-                printf("\n");
-                break;
-            }
-        }
-        if (fw[0] != NULL) {
-            for (int l = preve + 1; l < read; l++) {
-                if (line[l] != ' ') {
-                    name[pos] = line[l];
-                    pos++;
+        if(read > 0){
+            for (int l = 0; l < read; l++) {
+                if (line[l] != 32) {
+                    fw[l] = line[l];
                     preve++;
                 } else {
-                    pos = 0;
+                    printf("\n");
                     break;
                 }
             }
-        }
-        if (name != NULL) {
-            for (int l = preve + 1; l < read; l++) {
-                if (we == false && line[l] == '=') {
-                    we = true;
-                    l++;
-                } else if (we == true) {
-                    if (line[l] != ' ') {
-                        value[pos] = line[l];
+        
+            if (fw) {
+                for (int l = preve + 1; l < read; l++) {
+                    if (line[l] != 32) {
+                        name[pos] = line[l];
                         pos++;
+                        preve++;
                     } else {
                         pos = 0;
                         break;
                     }
                 }
             }
-        }
-        for (int l = 0; l < MAXTYPE; l++) {
-            if (strcmp(types[l], fw) == 0) {
-                printf("Found %s with name %s,value %s in line %i", types[l],
-                       name, value, linec);
+            if (name) {
+                for (int l = preve + 1; l < read; l++) {
+                    if (!we && line[l] == '=') {
+                        we = true;
+                        l++;
+                    } else if (we) {
+                        if (line[l] != 32) {
+                            value[pos] = line[l];
+                            pos++;
+                        } else {
+                            pos = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+            for (int l = 0; l < MAXTYPE; l++) {
+                if (strcmp(types[l], fw) == 0) {
+                    printf("Found %s with name %s,value %s in line %i\n", types[l],
+                        name, value, linec);
+                    break;
+                }
+            }
+            preve = 0;
+            memset(name, 0, sizeof(name));
+            memset(value, 0, sizeof(value));
+            memset(fw, 0, sizeof(fw));
+            if (line[0] == '/') {
+                printf("\n");
             }
         }
-        preve = 0;
-        memset(name, NULL, sizeof(name));
-        memset(value, NULL, sizeof(value));
-        memset(fw, NULL, sizeof(fw));
-        if (line[0] == '/') {
-            printf("\n");
-        }
-        if (line) {
-            free(line);  // memory managament
-        }
     }
-
+    if(line){
+        free(line);
+    }
     fclose(file);
-    return "SUCCESS";
+    return "\nSUCCESS";
 }
 
