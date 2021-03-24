@@ -7,6 +7,6 @@
 int main() 
 {
     FILE* file = fopen("dogshit.sa","r");
-    printf("%i",readfile(file));
+    printf("%s",readfile(file));
 }
 
