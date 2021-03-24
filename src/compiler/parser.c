@@ -79,9 +79,9 @@ char* readfile(FILE* file) {
                 }
             }
             preve = 0;
-            memset(name, 0, sizeof(name));
-            memset(value, 0, sizeof(value));
-            memset(fw, 0, sizeof(fw));
+            memset(name, 0, sizeof(&name));
+            memset(value, 0, sizeof(&value));
+            memset(fw, 0, sizeof(&fw));
             if (line[0] == '/') {
                 printf("\n");
             }
