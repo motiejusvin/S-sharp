@@ -3,5 +3,5 @@
 #include <stdio.h>
 
 char* readfile(FILE* file);
-
+int skip32(char* a, int p);
 #endif
