@@ -69,6 +69,7 @@ char* readfile(FILE* file) {
             if (strcmp(type, "siulas") == 0) {
                 while (line[linepos] != 34) {
                     linepos++;
+
                 }
                 linepos++;
                 while (line[linepos] != 34) {

@@ -1,7 +1,7 @@
 import random
 import os
 import time
-lines = 1000000
+lines = 100000
 
 types = ["sveikasis","nesveikasis","dvejetaine","siulas","raide"]
 
@@ -31,4 +31,3 @@ if(os.system("./main ./tests/test.sa") != 0):
     print("ERROR")
     exit(-1)
 f.close()
-exit(1)
