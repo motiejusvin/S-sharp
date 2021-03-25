@@ -66,7 +66,7 @@ char* readfile(FILE* file) {
             strcpy(variable.vartype, fw);
             strcpy(variable.varname, name);
             if (strcmp(variable.vartype,"siulas") == 0) {
-                while (line[preve] != 34) {
+                while (line[preve] != 34) { //Ascii " 
                     preve++;
                 }
                 preve++;
