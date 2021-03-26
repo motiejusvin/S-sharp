@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb8f0b0e-1fe7-42d6-86b8-0a1e0c12953d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/compiler/dogshit.sa" beforeDir="false" afterPath="$PROJECT_DIR$/../src/compiler/dogshit.sa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/compiler/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../src/compiler/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/compiler/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/../src/compiler/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sa" beforeDir="false" afterPath="$PROJECT_DIR$/test.sa" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

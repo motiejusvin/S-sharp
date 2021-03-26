@@ -11,7 +11,7 @@ int main(int args, char* argv[]) {
         printf("%s", readfile(file));
     } else {
         FILE* file = fopen("./src/compiler/dogshit.sa", "r");
-        printf("%s", readfile(file));
+        printf("\n%s", readfile(file));
     }
 }
 
